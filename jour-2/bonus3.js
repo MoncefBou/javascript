@@ -1,7 +1,7 @@
-var roundedNumber = 3.6;
+var roundedNumber = 12.4;
 
-if (roundedNumber > 3.5) {
-    console.log(Math.ceil());
+if (roundedNumber - Math.floor(roundedNumber) > 0.5) {
+    console.log(Math.ceil(roundedNumber));
 } else {
-    consol
+    console.log(Math.floor(roundedNumber));
 }
