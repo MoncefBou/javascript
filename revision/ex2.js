@@ -18,16 +18,13 @@ function countEach (myString) {
     }
 };
 
-countEach("xxxoo");
-
-var myString = "abcdefgh";
-console.log(myString.charAt(4));
+countEach("xxxooo");
 
 
 
 
 
 
-for ( var i = 0; i < 5; i++ ) {
 
-};
+
+

@@ -1,9 +1,36 @@
-function sortLetters (myString){
-    var letters = myString.split("")
+// function sortLetters (myString){
+//     var arrayOfMyString = myString.split("");
       
-      letters = letters.sort()
+//       arrayOfMyString = arrayOfMyString.sort();
       
-      letters = letters.join("")
-      console.log(letters)
- }
- sortLetters("konexio")
+//       myNewString = arrayOfMyString.join("");
+//       console.log(myNewString);
+//  }
+//  sortLetters("Konexio");
+
+ // Bonus 2
+
+ function sortLetters (myTrueString){
+  
+  var myString = myTrueString.toLowerCase();
+  
+  var arrayOfMyString = myString.split("");
+    
+    arrayOfMyString = arrayOfMyString.sort();
+    
+    myString = arrayOfMyString.join("");  
+   
+    var newString = "";
+    
+    for ( var i = 0; i <= (myTrueString.length - 1); i++) {
+     
+      if (myString.charAt(i).toUpperCase() == myTrueString.charAt(myTrueString.indexOf(myString.charAt(i).toUpperCase()))) {
+        newString = newString + myString.charAt(i).toUpperCase();
+     } else {
+        newString = newString + myString.charAt(i);
+     }
+   }
+   console.log(newString);
+
+}
+sortLetters("JAvaScript");
