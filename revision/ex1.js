@@ -6,7 +6,7 @@
 //       myNewString = arrayOfMyString.join("");
 //       console.log(myNewString);
 //  }
-//  sortLetters("Konexio");
+//  sortLetters("konexio");
 
  // Bonus 2
 
@@ -26,11 +26,14 @@
      
       if (myString.charAt(i).toUpperCase() == myTrueString.charAt(myTrueString.indexOf(myString.charAt(i).toUpperCase()))) {
         newString = newString + myString.charAt(i).toUpperCase();
+        myTrueString = myTrueString.replace(myTrueString.charAt(myTrueString.indexOf(myString.charAt(i).toUpperCase())), '/')
+        
      } else {
         newString = newString + myString.charAt(i);
+        
      }
    }
    console.log(newString);
 
 }
-sortLetters("JAvaScript");
+sortLetters("JAvaSscrIpt");

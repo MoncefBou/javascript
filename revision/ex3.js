@@ -8,11 +8,11 @@ function checkPal(myString) {
         reverseString = reverseString + myString.charAt(i);
     }
 
-    if (myString == reverseString) {
+    if (myString.toLowerCase() == reverseString.toLowerCase()) {
         console.log("Palindrome !");
     } else {
         console.log("Nope");
     }
 }
 
-checkPal("kayak");
+checkPal("kAyak");
