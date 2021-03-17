@@ -1,8 +1,4 @@
 var words = ["hello", "goodbye", "yes", "no", "stop", "go go go"];
-
-// words.splice(2, 1);
-// console.log(words);
-
 var Newtab = [];
 var NumberOfO = 0;
 
