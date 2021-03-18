@@ -1,7 +1,7 @@
 function calculateAge(birthDate) {
 
     var dateNow = new Date();
-    
+
     var yearNow = dateNow.getFullYear();
     var monthNow = dateNow.getMonth() + 1;
     var dayNow = dateNow.getDate();
@@ -28,8 +28,6 @@ function calculateAge(birthDate) {
         yearDiff = yearDiff - 1;
         monthDiff = monthDiff + 12;
     }
-
-    console.log(monthDiff)
 
     console.log("Il ou elle a", yearDiff, "ans");
 
