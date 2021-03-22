@@ -15,6 +15,7 @@ formatDate("2021-03-18");
 // ex2
 
 function calculateAge(birthDate) {
+    
     var myAge = moment(birthDate, "YYYYMMDD").fromNow("yy");
     console.log("Il ou elle a", myAge);
 

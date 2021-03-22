@@ -16,49 +16,8 @@ function onErr(err) {
     return;
 }
 
-function displayPrompt() {
-    prompt.get({
-        name: "q", description: "Trouvez le mot", validator: /^\w+$/,
-        warning: "La maison n'accepte que les lettres !"
-    }, function play(err, res) {
-
-        var mysteryWord = "motus";
-
-        var wordHidden = mysteryWord.charAt(0).toUpperCase();
-
-        for (var i = 1; i < mysteryWord.length; i++) {
-            wordHidden = wordHidden + "#";
-        }
-
-        for (var i = 1; i <= 6; i++) {
-
-            if (err) {
-                return onErr(err);
-            }
-
-            for (var j = 0; j <= (mysteryWord.length - 1); i++) {
-                if (mysteryWord.indexOf(res.q.charAt(i)) !== "-1"  ) {
-                    
-                
-
-                } else if () {
-
-                
-
-                } else {
-
-                    console.log("Bravo vous avez trouvé le mot", mysteryWord.length, "!!!");
-
-                }
-            }
-        }
-    })
-}
-
-displayPrompt();
-
-var mysteryWord = "motus";
-
+var count = 0;
+var mysteryWord = "MOMUS";
 var wordHidden = mysteryWord.charAt(0).toUpperCase();
 
 for (var i = 1; i < mysteryWord.length; i++) {
@@ -66,3 +25,65 @@ for (var i = 1; i < mysteryWord.length; i++) {
 }
 
 console.log(wordHidden);
+
+function displayPrompt() {
+
+    prompt.get({
+        name: "q", description: "Trouvez le mot", validator: /^[a-zA-Z]{5}$/,
+        warning: "Ecrivez un mot de 5 lettres"
+    },
+
+        function play(err, res) {
+
+            var testMysteryWord = mysteryWord;
+            var answer = res.q.toUpperCase();
+            var newWord = "";
+
+            if (err) {
+                return onErr(err);
+            }
+
+            console.log(mysteryWord.indexOf(answer.charAt(2)));
+
+            for (var j = 0; j <= (mysteryWord.length - 1); j++) {
+                if (testMysteryWord.indexOf(answer.charAt(j)) != "-1") {
+
+                    if (answer.charAt(j) == testMysteryWord.charAt(j)) {
+                        newWord = newWord + answer.charAt(j).green;
+                        testMysteryWord = testMysteryWord.replace(answer.charAt(j), "#");
+
+                    } else {
+                        newWord = newWord + answer.charAt(j).yellow;
+                        testMysteryWord = testMysteryWord.replace(answer.charAt(j), "#");
+                        
+                    }
+
+                } else {
+                    newWord = newWord + answer.charAt(j);
+                    
+                }
+            }
+            // console.log(newWord);
+
+            if (answer === mysteryWord) {
+
+                console.log("félicitation le mot était bien", newWord);
+
+            } else if (count < 6) {
+
+                count++;
+                console.log(newWord);
+                displayPrompt();
+
+
+            } else {
+
+                console.log("Vous avez perdu !");
+
+            }
+
+        }
+    )
+}
+
+displayPrompt();
