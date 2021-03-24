@@ -33,19 +33,15 @@ function displayPrompt() {
                 }, function (err, res2) {
 
                     if (err) {
-
                         return onErr(err);
 
                     } else if (res2.mot.toUpperCase() !== mysteryWord.toUpperCase()) {
-
                         count++;
 
                         if (count == 10) {
-
                             console.log("Vous avez perdu désolé...")
 
                         } else {
-
                             console.log("oups... plus que", (10 - count), "chance(s) !");
                             console.log(wordToShow);
                             displayPrompt();
@@ -59,24 +55,17 @@ function displayPrompt() {
 
             } else if (res.q === "n") {
 
-                if (count == 9) {
-                    console.log("il te reste qu'une seule chance, tente un mot plutot, soit pas bête !")
-                    displayPrompt();
-                } else {
-
                     prompt.get({
                         name: "lettre", description: "Proposez une lettre", validator: /^[a-zA-Z]{1}$/,
                         warning: "N'utilisez que des lettres et ne proposez qu'une lettre SVP !"
                     }, function (err, res3) {
 
                         if (err) {
-
                             return onErr(err);
 
                         }
 
                         if (wordToShow.indexOf(res3.lettre.toUpperCase()) != -1) {
-
                             count++;
 
                             console.log("Tu a déjà demandé cette lettre, concentre toi !");
@@ -88,11 +77,9 @@ function displayPrompt() {
                             let arrayVerif = arrayMysteryWord.map(function (letter) {
 
                                 if (letter == res3.lettre.toUpperCase() || wordToShow.indexOf(letter) != -1) {
-
                                     return letter;
 
                                 } else {
-
                                     return " _ ";
                                 }
 
@@ -101,23 +88,18 @@ function displayPrompt() {
                             wordToShow = arrayVerif.join("")
 
                             if (wordToShow === mysteryWord) {
-
                                 console.log("VICTOIRE, le mot était bien", mysteryWord.toUpperCase());
 
                             } else if (mysteryWord.toUpperCase().indexOf(res3.lettre.toUpperCase()) != -1) {
-
-                                count++;
                                 console.log(wordToShow);
                                 console.log("Bonne lettre bien joué, continue comme ça");
-                                console.log("il te reste", (10 - count), "tentative(s)");
                                 displayPrompt();
 
                             } else {
-
                                 count++;
 
-                                console.log("oups... plus que", (10 - count), "chance(s) !");
                                 console.log(wordToShow);
+                                console.log("oups... plus que", (10 - count), "chance(s) !");
                                 displayPrompt()
 
                             }
@@ -125,9 +107,8 @@ function displayPrompt() {
                         }
                     });
 
-                }
+                
             } else {
-
                 console.log(wordToShow);
                 displayPrompt();
 
