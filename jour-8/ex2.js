@@ -1,15 +1,14 @@
 var request = require("request");
 
-request.get("https://api.chucknorris.io/jokes/random", function (err, res, body) {
-    let randomJokes = JSON.parse(body)
-  
-    function getFact (elem) {
-        console.log(elem.value);
+function getFact() {
+    request.get("https://api.chucknorris.io/jokes/random", function (err, res, body) {
+        let randomJokes = JSON.parse(body)
 
-    }
+        console.log(randomJokes.value);
 
-    getFact(randomJokes);
+    })
+}
 
-} )
+getFact();
 
-console.log("random Chuck Norris fact here");
+console.log("The random Chuck Norris fact here is ");
